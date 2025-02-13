@@ -15,11 +15,11 @@
     <tr>
     <?php
       if($result = $conn->query("SELECT * FROM ATTORI WHERE AnnoNascita BETWEEN '".$_GET["annominimo"]."' AND '".$_GET["annomassimo"] . "' ORDER BY ".$_GET["campo"]." ASC")){
-        foreach($result->fetch_fields() as $columnName){
-          echo "<th>". $columnName->name. "</th>";
-        }
-        echo "</tr>";
         if ($result->num_rows > 0) {
+          foreach($result->fetch_fields() as $columnName){
+            echo "<th>". $columnName->name. "</th>";
+          }
+          echo "</tr>";
           while($row = $result->fetch_assoc()) {
             echo "<tr>";
             foreach($row as $column){
